@@ -11,6 +11,7 @@ var x000 = []string{
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+
 	"",   // 0x80
 	"",   // 0x81
 	"",   // 0x82
@@ -46,8 +47,10 @@ var x000 = []string{
 	" ",  // 0xa0
 	"!",  // 0xa1
 	"C/", // 0xa2
-	// Not \"GBP\" - Pound Sign is used for more than just British Pounds.
-	"PS",  // 0xa3
+
+	// Not "GBP" - Pound Sign is used for more than just British Pounds.
+	"PS", // 0xa3
+
 	"$?",  // 0xa4
 	"Y=",  // 0xa5
 	"|",   // 0xa6
@@ -62,27 +65,31 @@ var x000 = []string{
 	"-",   // 0xaf
 	"deg", // 0xb0
 	"+-",  // 0xb1
+
 	// These might be combined with other superscript digits (u+2070 - u+2079)
-	"2",   // 0xb2
-	"3",   // 0xb3
-	"'",   // 0xb4
-	"u",   // 0xb5
-	"P",   // 0xb6
-	"*",   // 0xb7
-	",",   // 0xb8
-	"1",   // 0xb9
-	"o",   // 0xba
-	">>",  // 0xbb
-	"1/4", // 0xbc
-	"1/2", // 0xbd
-	"3/4", // 0xbe
-	"?",   // 0xbf
-	"A",   // 0xc0
-	"A",   // 0xc1
-	"A",   // 0xc2
-	"A",   // 0xc3
-	// Not \"AE\" - used in languages other than German
-	"A",  // 0xc4
+	"2", // 0xb2
+	"3", // 0xb3
+
+	"'",     // 0xb4
+	"u",     // 0xb5
+	"P",     // 0xb6
+	"*",     // 0xb7
+	",",     // 0xb8
+	"1",     // 0xb9
+	"o",     // 0xba
+	">>",    // 0xbb
+	" 1/4 ", // 0xbc
+	" 1/2 ", // 0xbd
+	" 3/4 ", // 0xbe
+	"?",     // 0xbf
+	"A",     // 0xc0
+	"A",     // 0xc1
+	"A",     // 0xc2
+	"A",     // 0xc3
+
+	// Not "AE" - used in languages other than German
+	"A", // 0xc4
+
 	"A",  // 0xc5
 	"AE", // 0xc6
 	"C",  // 0xc7
@@ -100,15 +107,19 @@ var x000 = []string{
 	"O",  // 0xd3
 	"O",  // 0xd4
 	"O",  // 0xd5
-	// Not \"OE\" - used in languages other than German
+
+	// Not "OE" - used in languages other than German
 	"O", // 0xd6
+
 	"x", // 0xd7
 	"O", // 0xd8
 	"U", // 0xd9
 	"U", // 0xda
 	"U", // 0xdb
-	// Not \"UE\" - used in languages other than German
-	"U",  // 0xdc
+
+	// Not "UE" - used in languages other than German
+	"U", // 0xdc
+
 	"Y",  // 0xdd
 	"Th", // 0xde
 	"ss", // 0xdf
@@ -116,8 +127,10 @@ var x000 = []string{
 	"a",  // 0xe1
 	"a",  // 0xe2
 	"a",  // 0xe3
-	// Not \"ae\" - used in languages other than German
-	"a",  // 0xe4
+
+	// Not "ae" - used in languages other than German
+	"a", // 0xe4
+
 	"a",  // 0xe5
 	"ae", // 0xe6
 	"c",  // 0xe7
@@ -135,15 +148,19 @@ var x000 = []string{
 	"o",  // 0xf3
 	"o",  // 0xf4
 	"o",  // 0xf5
-	// Not \"oe\" - used in languages other than German
+
+	// Not "oe" - used in languages other than German
 	"o", // 0xf6
+
 	"/", // 0xf7
 	"o", // 0xf8
 	"u", // 0xf9
 	"u", // 0xfa
 	"u", // 0xfb
-	// Not \"ue\" - used in languages other than German
-	"u",  // 0xfc
+
+	// Not "ue" - used in languages other than German
+	"u", // 0xfc
+
 	"y",  // 0xfd
 	"th", // 0xfe
 	"y",  // 0xff

@@ -1,6 +1,6 @@
 package table
 
-var x022 = []string{
+var x1f6 = []string{
 	"\uffff", // 0x00
 	"\uffff", // 0x01
 	"\uffff", // 0x02
@@ -19,12 +19,12 @@ var x022 = []string{
 	"\uffff", // 0x0f
 	"\uffff", // 0x10
 	"\uffff", // 0x11
-	"-",      // 0x12
+	"\uffff", // 0x12
 	"\uffff", // 0x13
 	"\uffff", // 0x14
-	"/",      // 0x15
-	"\\",     // 0x16
-	"*",      // 0x17
+	"\uffff", // 0x15
+	"\uffff", // 0x16
+	"\uffff", // 0x17
 	"\uffff", // 0x18
 	"\uffff", // 0x19
 	"\uffff", // 0x1a
@@ -36,7 +36,7 @@ var x022 = []string{
 	"\uffff", // 0x20
 	"\uffff", // 0x21
 	"\uffff", // 0x22
-	"|",      // 0x23
+	"\uffff", // 0x23
 	"\uffff", // 0x24
 	"\uffff", // 0x25
 	"\uffff", // 0x26
@@ -55,13 +55,13 @@ var x022 = []string{
 	"\uffff", // 0x33
 	"\uffff", // 0x34
 	"\uffff", // 0x35
-	":",      // 0x36
+	"\uffff", // 0x36
 	"\uffff", // 0x37
 	"\uffff", // 0x38
 	"\uffff", // 0x39
 	"\uffff", // 0x3a
 	"\uffff", // 0x3b
-	"~",      // 0x3c
+	"\uffff", // 0x3c
 	"\uffff", // 0x3d
 	"\uffff", // 0x3e
 	"\uffff", // 0x3f
@@ -101,10 +101,10 @@ var x022 = []string{
 	"\uffff", // 0x61
 	"\uffff", // 0x62
 	"\uffff", // 0x63
-	"<=",     // 0x64
-	">=",     // 0x65
-	"<=",     // 0x66
-	">=",     // 0x67
+	"\uffff", // 0x64
+	"\uffff", // 0x65
+	"\uffff", // 0x66
+	"\uffff", // 0x67
 	"\uffff", // 0x68
 	"\uffff", // 0x69
 	"\uffff", // 0x6a
@@ -113,18 +113,18 @@ var x022 = []string{
 	"\uffff", // 0x6d
 	"\uffff", // 0x6e
 	"\uffff", // 0x6f
-	"\uffff", // 0x70
-	"\uffff", // 0x71
-	"\uffff", // 0x72
-	"\uffff", // 0x73
-	"\uffff", // 0x74
-	"\uffff", // 0x75
-	"\uffff", // 0x76
-	"\uffff", // 0x77
-	"\uffff", // 0x78
-	"\uffff", // 0x79
-	"\uffff", // 0x7a
-	"\uffff", // 0x7b
+	"et",     // 0x70
+	"et",     // 0x71
+	"et",     // 0x72
+	"et",     // 0x73
+	"&",      // 0x74
+	"&",      // 0x75
+	"\"",     // 0x76
+	"\"",     // 0x77
+	",,",     // 0x78
+	"!?",     // 0x79
+	"!?",     // 0x7a
+	"!?",     // 0x7b
 	"\uffff", // 0x7c
 	"\uffff", // 0x7d
 	"\uffff", // 0x7e
@@ -256,4 +256,5 @@ var x022 = []string{
 	"\uffff", // 0xfc
 	"\uffff", // 0xfd
 	"\uffff", // 0xfe
+	"\uffff", // 0xff
 }
