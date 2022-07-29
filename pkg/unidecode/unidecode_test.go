@@ -20,12 +20,6 @@ func check(t *testing.T, ret, expect string) {
 	}
 }
 
-func TestVersion(t *testing.T) {
-	ret := Version()
-	expect := "0.1.1"
-	check(t, ret, expect)
-}
-
 func TestUnidecodeASCII(t *testing.T) {
 	for n := 0; n < unicode.MaxASCII; n++ {
 		expect := string(rune(n))

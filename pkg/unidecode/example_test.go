@@ -3,7 +3,7 @@ package unidecode_test
 import (
 	"fmt"
 
-	"github.com/mozillazg/go-unidecode"
+	"github.com/aisbergg/go-unidecode/pkg/unidecode"
 )
 
 func ExampleUnidecode() {

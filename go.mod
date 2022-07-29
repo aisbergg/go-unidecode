@@ -1,1 +1,1 @@
-module github.com/mozillazg/go-unidecode
+module github.com/aisbergg/go-unidecode

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/mozillazg/go-unidecode/table"
+	"github.com/aisbergg/go-unidecode/pkg/unidecode/table"
 )
 
 // Version return version
