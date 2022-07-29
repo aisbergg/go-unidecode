@@ -7,7 +7,7 @@ func benchmarkUnidecode(b *testing.B, s string) {
 	b.StartTimer()
 
 	for i := 0; i < b.N; i++ {
-		Unidecode(s)
+		Unidecode(s, Ignore)
 	}
 }
 

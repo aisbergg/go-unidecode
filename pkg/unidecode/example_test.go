@@ -8,12 +8,28 @@ import (
 
 func ExampleUnidecode() {
 	s := "北京kožušček"
-	fmt.Println(unidecode.Unidecode(s))
+	d, _ := unidecode.Unidecode(s, unidecode.Ignore)
+	fmt.Println(d)
 	// Output: Bei Jing kozuscek
 }
 
-func ExampleUnidecode_aSCII() {
-	s := "abc"
-	fmt.Println(unidecode.Unidecode(s))
-	// Output: abc
+func ExampleUnidecode_errorStrict() {
+	s := "⁐"
+	_, err := unidecode.Unidecode(s, unidecode.Strict)
+	fmt.Println(err)
+	// Output: no replacement found for character ⁐ in position 0
+}
+
+func ExampleUnidecode_errorPreserve() {
+	s := "⁐"
+	d, _ := unidecode.Unidecode(s, unidecode.Preserve)
+	fmt.Println(d)
+	// Output: ⁐
+}
+
+func ExampleUnidecode_errorReplace() {
+	s := "⁐"
+	d, _ := unidecode.Unidecode(s, unidecode.Replace, "?")
+	fmt.Println(d)
+	// Output: ?
 }
