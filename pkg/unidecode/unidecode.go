@@ -1,42 +1,89 @@
 package unidecode
 
 import (
+	"fmt"
 	"strings"
 	"unicode"
 
 	"github.com/aisbergg/go-unidecode/pkg/unidecode/table"
 )
 
-// Version return version
-func Version() string {
-	return "0.1.1"
-}
+// ErrorHandling specifies the behavior of Unidecode in case of an error.
+type ErrorHandling uint8
 
-// Unidecode implements transliterate Unicode text into plain 7-bit ASCII.
-// e.g. Unidecode("kožušček") => "kozuscek"
-func Unidecode(s string) string {
-	return unidecode(s)
-}
+const (
+	// Ignore specifies that non transliteratable characters should be ignored.
+	Ignore ErrorHandling = iota
+	// Strict specifies that non transliteratable characters should cause an
+	// error.
+	Strict
+	// Replace specifies that non transliteratable characters should be replaced
+	// with a given replacement value.
+	Replace
+	// Preserve specifies that non transliteratable characters should be
+	// preserved.
+	Preserve
+)
 
-func unidecode(s string) string {
-	ret := []string{}
-	for _, r := range s {
-		if r < unicode.MaxASCII {
-			v := string(r)
-			ret = append(ret, v)
-			continue
-		}
-		if r > 0xeffff {
-			continue
-		}
-
-		section := r >> 8   // Chop off the last two hex digits
-		position := r % 256 // Last two hex digits
-		if tb, ok := table.Tables[section]; ok {
-			if len(tb) > int(position) {
-				ret = append(ret, tb[position])
+// Unidecode transliterates Unicode text into plain 7-bit ASCII. For best
+// results you might use NFC or NFKC normalization prior to transliteration.
+//
+// Examples:
+//   unidecode.Unidecode("北京kožušček", unidecode.Ignore) // Output: Bei Jing kozuscek
+//   unidecode.Unidecode("⁐", unidecode.Strict) // Error: no replacement found for character ⁐ in position 0
+//   unidecode.Unidecode("⁐", unidecode.Preserve) // Output: ⁐
+//   unidecode.Unidecode("⁐", unidecode.Replace, "?") // Output: ?
+func Unidecode(s string, errors ErrorHandling, replacement ...string) (string, error) {
+	var b strings.Builder
+	b.Grow(len(s) + len(s)/10)
+	for i, r := range []rune(s) {
+		tr, ok := transliterateRune(r)
+		if !ok {
+			switch errors {
+			case Ignore:
+				continue
+			case Strict:
+				return "", &Error{r, i, fmt.Sprintf("no replacement found for character %c in position %d", r, i)}
+			case Replace:
+				repl := ""
+				if len(replacement) > 0 {
+					repl = replacement[0]
+				}
+				tr = repl
+			case Preserve:
+				tr = string(r)
+			default:
+				panic("invalid value for errors parameter")
 			}
 		}
+		b.WriteString(tr)
 	}
-	return strings.Join(ret, "")
+	return b.String(), nil
+}
+
+// transliterateRune converts the given rune into a latin representation.
+func transliterateRune(r rune) (string, bool) {
+	// keep ASCII characters as is
+	if r < unicode.MaxASCII {
+		return string(r), true
+	}
+
+	// cannot transliterate private use characters
+	if unicode.In(r, unicode.Co, unicode.Noncharacter_Code_Point) {
+		return "", false
+	}
+
+	// transliterate rune using lookup table
+	section := r >> 8   // Chop off the last two hex digits
+	position := r % 256 // Last two hex digits
+	tb, ok := table.Tables[section]
+	if !(ok && int(position) < len(tb)) {
+		return "", false
+	}
+	trl := tb[position]
+	if trl == "\uffff" {
+		return "", false
+	}
+
+	return trl, true
 }

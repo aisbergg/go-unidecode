@@ -3,38 +3,45 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 
-	"github.com/mattn/go-isatty"
-	"github.com/mozillazg/go-unidecode"
+	"github.com/aisbergg/go-unidecode/pkg/unidecode"
 )
 
+var usage = `Usage: unidecode [OPTIONS] STRING...`
+
 func main() {
-	version := flag.Bool("V", false, "Output version info")
+
+	errors := flag.String("e", "ignore", "How to handle errors, accepted values: ignore, strict, replace, preserve")
 	flag.Parse()
-	if *version {
-		v := unidecode.Version()
-		fmt.Printf("unidecode %s\n", v)
-		os.Exit(0)
+	if len(flag.Args()) == 0 {
+		die(usage)
+	}
+	errHnd := unidecode.ErrorHandling(0)
+	*errors = strings.TrimSpace(strings.ToLower(*errors))
+	switch *errors {
+	case "ignore":
+		errHnd = unidecode.Ignore
+	case "strict":
+		errHnd = unidecode.Strict
+	case "replace":
+		errHnd = unidecode.Replace
+	case "preserve":
+		errHnd = unidecode.Preserve
+	default:
+		die("invalid value for -e parameter")
 	}
 
-	textSlice := flag.Args()
-	stdin := []byte{}
-	if !isatty.IsTerminal(os.Stdin.Fd()) {
-		stdin, _ = ioutil.ReadAll(os.Stdin)
+	input := strings.Join(flag.Args(), " ")
+	ret, err := unidecode.Unidecode(input, errHnd)
+	if err != nil {
+		die("%v", err)
 	}
-	if len(stdin) > 0 {
-		textSlice = append(textSlice, string(stdin))
-	}
-
-	if len(textSlice) == 0 {
-		fmt.Println("Usage: unidecode STRING")
-		os.Exit(1)
-	}
-
-	s := strings.Join(textSlice, " ")
-	ret := unidecode.Unidecode(s)
 	fmt.Println(ret)
+}
+
+func die(format string, args ...interface{}) {
+	fmt.Fprintf(os.Stderr, format+"\n", args...)
+	os.Exit(1)
 }
