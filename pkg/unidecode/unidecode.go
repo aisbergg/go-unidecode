@@ -12,15 +12,15 @@ import (
 type ErrorHandling uint8
 
 const (
-	// Ignore specifies that non transliteratable characters should be ignored.
+	// Ignore specifies that untransliteratable characters should be ignored.
 	Ignore ErrorHandling = iota
-	// Strict specifies that non transliteratable characters should cause an
+	// Strict specifies that untransliteratable characters should cause an
 	// error.
 	Strict
-	// Replace specifies that non transliteratable characters should be replaced
+	// Replace specifies that untransliteratable characters should be replaced
 	// with a given replacement value.
 	Replace
-	// Preserve specifies that non transliteratable characters should be
+	// Preserve specifies that untransliteratable characters should be
 	// preserved.
 	Preserve
 )

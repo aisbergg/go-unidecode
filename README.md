@@ -1,60 +1,73 @@
-go-unidecode
-==============
+# go-unidecode
 
-[![Build Status](https://travis-ci.org/mozillazg/go-unidecode.svg?branch=master)](https://travis-ci.org/mozillazg/go-unidecode)
-[![Coverage Status](https://coveralls.io/repos/mozillazg/go-unidecode/badge.svg?branch=master)](https://coveralls.io/r/mozillazg/go-unidecode?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/mozillazg/go-unidecode)](https://goreportcard.com/report/github.com/mozillazg/go-unidecode)
-[![GoDoc](https://godoc.org/github.com/mozillazg/go-unidecode?status.svg)](https://godoc.org/github.com/mozillazg/go-unidecode)
+[![Go Report Card](https://goreportcard.com/badge/github.com/aisbergg/go-unidecode)](https://goreportcard.com/report/github.com/aisbergg/go-unidecode)
+[![GoDoc](https://godoc.org/github.com/aisbergg/go-unidecode?status.svg)](https://godoc.org/github.com/aisbergg/go-unidecode)
 
-ASCII transliterations of Unicode text. Inspired by [python-unidecode](https://github.com/avian2/unidecode).
+ASCII transliterations of Unicode text for Go. Inspired by [python-unidecode](https://github.com/avian2/unidecode).
 
 
-Installation
-------------
+## Installation
 
 ```
-go get -u github.com/mozillazg/go-unidecode
+go get -u github.com/aisbergg/go-unidecode
 ```
 
 Install CLI tool:
 
 ```
-$ go get -u github.com/mozillazg/go-unidecode/unidecode
+$ go get -u github.com/aisbergg/go-unidecode/unidecode
 
 $ unidecode 北京kožušček
 Bei Jing kozuscek
 ```
 
 
-Documentation
---------------
+## Documentation
 
-API documentation can be found here:
-https://godoc.org/github.com/mozillazg/go-unidecode
+API documentation can be found here: https://godoc.org/github.com/aisbergg/go-unidecode
 
 
-Usage
-------
+## Usage
 
 ```go
 package main
 
 import (
 	"fmt"
-	"github.com/mozillazg/go-unidecode"
+
+	"github.com/aisbergg/go-unidecode/pkg/unidecode"
 )
 
 func main() {
 	s := "abc"
-	fmt.Println(unidecode.Unidecode(s))
+	d, _ := unidecode.Unidecode(s, unidecode.Ignore)
+	fmt.Println(d)
 	// Output: abc
 
 	s = "北京"
-	fmt.Println(unidecode.Unidecode(s))
+	d, _ = unidecode.Unidecode(s, unidecode.Ignore)
+	fmt.Println(d)
 	// Output: Bei Jing
 
 	s = "kožušček"
-	fmt.Println(unidecode.Unidecode(s))
+	d, _ = unidecode.Unidecode(s, unidecode.Ignore)
+	fmt.Println(d)
 	// Output: kozuscek
+
+	// return an error if an untransliteratable character is found
+	s = "⁐"
+	_, err := unidecode.Unidecode(s, unidecode.Strict)
+	fmt.Println(err)
+	// Output: no replacement found for character ⁐ in position 0
+
+	// preserve untransliteratable characters
+	d, _ = unidecode.Unidecode(s, unidecode.Preserve)
+	fmt.Println(d)
+	// Output: ⁐
+
+	// replace untransliteratable characters with specified replacement text.
+	d, _ = unidecode.Unidecode(s, unidecode.Replace, "?")
+	fmt.Println(d)
+	// Output: ?
 }
 ```
