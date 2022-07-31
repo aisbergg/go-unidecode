@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"unicode"
+	"unicode/utf8"
 
 	"github.com/aisbergg/go-unidecode/pkg/unidecode/table"
 )
@@ -35,28 +36,29 @@ const (
 //   unidecode.Unidecode("⁐", unidecode.Replace, "?") // Output: ?
 func Unidecode(s string, errors ErrorHandling, replacement ...string) (string, error) {
 	var b strings.Builder
-	b.Grow(len(s) + len(s)/10)
-	for i, r := range []rune(s) {
-		tr, ok := transliterateRune(r)
+	b.Grow(len(s) + len(s)/3) // 33% extra capacity
+	for _, r := range s {
+		trl, ok := transliterateRune(r)
 		if !ok {
 			switch errors {
 			case Ignore:
 				continue
 			case Strict:
+				i := strings.IndexRune(s, r)
 				return "", &Error{r, i, fmt.Sprintf("no replacement found for character %c in position %d", r, i)}
 			case Replace:
 				repl := ""
 				if len(replacement) > 0 {
 					repl = replacement[0]
 				}
-				tr = repl
+				trl = repl
 			case Preserve:
-				tr = string(r)
+				trl = runeToString(r)
 			default:
 				panic("invalid value for errors parameter")
 			}
 		}
-		b.WriteString(tr)
+		b.WriteString(trl)
 	}
 	return b.String(), nil
 }
@@ -65,7 +67,7 @@ func Unidecode(s string, errors ErrorHandling, replacement ...string) (string, e
 func transliterateRune(r rune) (string, bool) {
 	// keep ASCII characters as is
 	if r < unicode.MaxASCII {
-		return string(r), true
+		return runeToString(r), true
 	}
 
 	// cannot transliterate private use characters
@@ -86,4 +88,12 @@ func transliterateRune(r rune) (string, bool) {
 	}
 
 	return trl, true
+}
+
+// runeToString converts the given rune into a string without allocating memory
+// on the HEAP.
+func runeToString(r rune) string {
+	buf := make([]byte, utf8.UTFMax)
+	w := utf8.EncodeRune(buf[:utf8.UTFMax], r)
+	return string(buf[:w])
 }
