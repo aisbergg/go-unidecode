@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 (2022-07-31)
+
+* add benchmark
+
 ## 1.1.0 (2022-07-31)
 
 * error for every non transliteratable character
