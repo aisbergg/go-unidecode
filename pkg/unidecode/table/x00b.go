@@ -1,11 +1,11 @@
 package table
 
 var x00b = []string{
-	"\uffff", // 0x00
+	"",       // 0x00
 	"N",      // 0x01
 	"N",      // 0x02
 	"H",      // 0x03
-	"\uffff", // 0x04
+	"",       // 0x04
 	"a",      // 0x05
 	"aa",     // 0x06
 	"i",      // 0x07
@@ -14,12 +14,12 @@ var x00b = []string{
 	"uu",     // 0x0a
 	"R",      // 0x0b
 	"L",      // 0x0c
-	"\uffff", // 0x0d
-	"\uffff", // 0x0e
+	"",       // 0x0d
+	"",       // 0x0e
 	"e",      // 0x0f
 	"ai",     // 0x10
-	"\uffff", // 0x11
-	"\uffff", // 0x12
+	"",       // 0x11
+	"",       // 0x12
 	"o",      // 0x13
 	"au",     // 0x14
 	"k",      // 0x15
@@ -42,7 +42,7 @@ var x00b = []string{
 	"d",      // 0x26
 	"dh",     // 0x27
 	"n",      // 0x28
-	"\uffff", // 0x29
+	"",       // 0x29
 	"p",      // 0x2a
 	"ph",     // 0x2b
 	"b",      // 0x2c
@@ -50,17 +50,17 @@ var x00b = []string{
 	"m",      // 0x2e
 	"y",      // 0x2f
 	"r",      // 0x30
-	"\uffff", // 0x31
+	"",       // 0x31
 	"l",      // 0x32
 	"ll",     // 0x33
-	"\uffff", // 0x34
+	"",       // 0x34
 	"",       // 0x35
 	"sh",     // 0x36
 	"ss",     // 0x37
 	"s",      // 0x38
 	"h",      // 0x39
-	"\uffff", // 0x3a
-	"\uffff", // 0x3b
+	"",       // 0x3a
+	"",       // 0x3b
 	"'",      // 0x3c
 	"'",      // 0x3d
 	"aa",     // 0x3e
@@ -69,40 +69,40 @@ var x00b = []string{
 	"u",      // 0x41
 	"uu",     // 0x42
 	"R",      // 0x43
-	"\uffff", // 0x44
-	"\uffff", // 0x45
-	"\uffff", // 0x46
+	"",       // 0x44
+	"",       // 0x45
+	"",       // 0x46
 	"e",      // 0x47
 	"ai",     // 0x48
-	"\uffff", // 0x49
-	"\uffff", // 0x4a
+	"",       // 0x49
+	"",       // 0x4a
 	"o",      // 0x4b
 	"au",     // 0x4c
 	"",       // 0x4d
-	"\uffff", // 0x4e
-	"\uffff", // 0x4f
-	"\uffff", // 0x50
-	"\uffff", // 0x51
-	"\uffff", // 0x52
-	"\uffff", // 0x53
-	"\uffff", // 0x54
-	"\uffff", // 0x55
+	"",       // 0x4e
+	"",       // 0x4f
+	"",       // 0x50
+	"",       // 0x51
+	"",       // 0x52
+	"",       // 0x53
+	"",       // 0x54
+	"",       // 0x55
 	"+",      // 0x56
 	"+",      // 0x57
-	"\uffff", // 0x58
-	"\uffff", // 0x59
-	"\uffff", // 0x5a
-	"\uffff", // 0x5b
+	"",       // 0x58
+	"",       // 0x59
+	"",       // 0x5a
+	"",       // 0x5b
 	"rr",     // 0x5c
 	"rh",     // 0x5d
-	"\uffff", // 0x5e
+	"",       // 0x5e
 	"yy",     // 0x5f
 	"RR",     // 0x60
 	"LL",     // 0x61
-	"\uffff", // 0x62
-	"\uffff", // 0x63
-	"\uffff", // 0x64
-	"\uffff", // 0x65
+	"",       // 0x62
+	"",       // 0x63
+	"",       // 0x64
+	"",       // 0x65
 	"0",      // 0x66
 	"1",      // 0x67
 	"2",      // 0x68
@@ -114,67 +114,67 @@ var x00b = []string{
 	"8",      // 0x6e
 	"9",      // 0x6f
 	"",       // 0x70
-	"\uffff", // 0x71
-	"\uffff", // 0x72
-	"\uffff", // 0x73
-	"\uffff", // 0x74
-	"\uffff", // 0x75
-	"\uffff", // 0x76
-	"\uffff", // 0x77
-	"\uffff", // 0x78
-	"\uffff", // 0x79
-	"\uffff", // 0x7a
-	"\uffff", // 0x7b
-	"\uffff", // 0x7c
-	"\uffff", // 0x7d
-	"\uffff", // 0x7e
-	"\uffff", // 0x7f
-	"\uffff", // 0x80
-	"\uffff", // 0x81
+	"",       // 0x71
+	"",       // 0x72
+	"",       // 0x73
+	"",       // 0x74
+	"",       // 0x75
+	"",       // 0x76
+	"",       // 0x77
+	"",       // 0x78
+	"",       // 0x79
+	"",       // 0x7a
+	"",       // 0x7b
+	"",       // 0x7c
+	"",       // 0x7d
+	"",       // 0x7e
+	"",       // 0x7f
+	"",       // 0x80
+	"",       // 0x81
 	"N",      // 0x82
 	"H",      // 0x83
-	"\uffff", // 0x84
+	"",       // 0x84
 	"a",      // 0x85
 	"aa",     // 0x86
 	"i",      // 0x87
 	"ii",     // 0x88
 	"u",      // 0x89
 	"uu",     // 0x8a
-	"\uffff", // 0x8b
-	"\uffff", // 0x8c
-	"\uffff", // 0x8d
+	"",       // 0x8b
+	"",       // 0x8c
+	"",       // 0x8d
 	"e",      // 0x8e
 	"ee",     // 0x8f
 	"ai",     // 0x90
-	"\uffff", // 0x91
+	"",       // 0x91
 	"o",      // 0x92
 	"oo",     // 0x93
 	"au",     // 0x94
 	"k",      // 0x95
-	"\uffff", // 0x96
-	"\uffff", // 0x97
-	"\uffff", // 0x98
+	"",       // 0x96
+	"",       // 0x97
+	"",       // 0x98
 	"ng",     // 0x99
 	"c",      // 0x9a
-	"\uffff", // 0x9b
+	"",       // 0x9b
 	"j",      // 0x9c
-	"\uffff", // 0x9d
+	"",       // 0x9d
 	"ny",     // 0x9e
 	"tt",     // 0x9f
-	"\uffff", // 0xa0
-	"\uffff", // 0xa1
-	"\uffff", // 0xa2
+	"",       // 0xa0
+	"",       // 0xa1
+	"",       // 0xa2
 	"nn",     // 0xa3
 	"t",      // 0xa4
-	"\uffff", // 0xa5
-	"\uffff", // 0xa6
-	"\uffff", // 0xa7
+	"",       // 0xa5
+	"",       // 0xa6
+	"",       // 0xa7
 	"n",      // 0xa8
 	"nnn",    // 0xa9
 	"p",      // 0xaa
-	"\uffff", // 0xab
-	"\uffff", // 0xac
-	"\uffff", // 0xad
+	"",       // 0xab
+	"",       // 0xac
+	"",       // 0xad
 	"m",      // 0xae
 	"y",      // 0xaf
 	"r",      // 0xb0
@@ -183,54 +183,54 @@ var x00b = []string{
 	"ll",     // 0xb3
 	"lll",    // 0xb4
 	"v",      // 0xb5
-	"\uffff", // 0xb6
+	"",       // 0xb6
 	"ss",     // 0xb7
 	"s",      // 0xb8
 	"h",      // 0xb9
-	"\uffff", // 0xba
-	"\uffff", // 0xbb
-	"\uffff", // 0xbc
-	"\uffff", // 0xbd
+	"",       // 0xba
+	"",       // 0xbb
+	"",       // 0xbc
+	"",       // 0xbd
 	"aa",     // 0xbe
 	"i",      // 0xbf
 	"ii",     // 0xc0
 	"u",      // 0xc1
 	"uu",     // 0xc2
-	"\uffff", // 0xc3
-	"\uffff", // 0xc4
-	"\uffff", // 0xc5
+	"",       // 0xc3
+	"",       // 0xc4
+	"",       // 0xc5
 	"e",      // 0xc6
 	"ee",     // 0xc7
 	"ai",     // 0xc8
-	"\uffff", // 0xc9
+	"",       // 0xc9
 	"o",      // 0xca
 	"oo",     // 0xcb
 	"au",     // 0xcc
 	"",       // 0xcd
-	"\uffff", // 0xce
-	"\uffff", // 0xcf
-	"\uffff", // 0xd0
-	"\uffff", // 0xd1
-	"\uffff", // 0xd2
-	"\uffff", // 0xd3
-	"\uffff", // 0xd4
-	"\uffff", // 0xd5
-	"\uffff", // 0xd6
+	"",       // 0xce
+	"",       // 0xcf
+	"",       // 0xd0
+	"",       // 0xd1
+	"",       // 0xd2
+	"",       // 0xd3
+	"",       // 0xd4
+	"",       // 0xd5
+	"",       // 0xd6
 	"+",      // 0xd7
-	"\uffff", // 0xd8
-	"\uffff", // 0xd9
-	"\uffff", // 0xda
-	"\uffff", // 0xdb
-	"\uffff", // 0xdc
-	"\uffff", // 0xdd
-	"\uffff", // 0xde
-	"\uffff", // 0xdf
-	"\uffff", // 0xe0
-	"\uffff", // 0xe1
-	"\uffff", // 0xe2
-	"\uffff", // 0xe3
-	"\uffff", // 0xe4
-	"\uffff", // 0xe5
+	"",       // 0xd8
+	"",       // 0xd9
+	"",       // 0xda
+	"",       // 0xdb
+	"",       // 0xdc
+	"",       // 0xdd
+	"",       // 0xde
+	"",       // 0xdf
+	"",       // 0xe0
+	"",       // 0xe1
+	"",       // 0xe2
+	"",       // 0xe3
+	"",       // 0xe4
+	"",       // 0xe5
 	"0",      // 0xe6
 	"1",      // 0xe7
 	"2",      // 0xe8
@@ -244,16 +244,16 @@ var x00b = []string{
 	"+10+",   // 0xf0
 	"+100+",  // 0xf1
 	"+1000+", // 0xf2
-	"\uffff", // 0xf3
-	"\uffff", // 0xf4
-	"\uffff", // 0xf5
-	"\uffff", // 0xf6
-	"\uffff", // 0xf7
-	"\uffff", // 0xf8
-	"\uffff", // 0xf9
-	"\uffff", // 0xfa
-	"\uffff", // 0xfb
-	"\uffff", // 0xfc
-	"\uffff", // 0xfd
-	"\uffff", // 0xfe
+	"",       // 0xf3
+	"",       // 0xf4
+	"",       // 0xf5
+	"",       // 0xf6
+	"",       // 0xf7
+	"",       // 0xf8
+	"",       // 0xf9
+	"",       // 0xfa
+	"",       // 0xfb
+	"",       // 0xfc
+	"",       // 0xfd
+	"",       // 0xfe
 }

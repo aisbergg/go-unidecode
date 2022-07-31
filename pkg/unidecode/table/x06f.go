@@ -73,8 +73,8 @@ var x06f = []string{
 	"Guan ",   // 0x45
 	"Ying ",   // 0x46
 	"Xiao ",   // 0x47
-	"\uffff",  // 0x48
-	"\uffff",  // 0x49
+	"",        // 0x48
+	"",        // 0x49
 	"Xu ",     // 0x4a
 	"Lian ",   // 0x4b
 	"Zhi ",    // 0x4c
@@ -156,9 +156,9 @@ var x06f = []string{
 	"Shan ",   // 0x98
 	"Xi ",     // 0x99
 	"Oki ",    // 0x9a
-	"\uffff",  // 0x9b
+	"",        // 0x9b
 	"Lan ",    // 0x9c
-	"\uffff",  // 0x9d
+	"",        // 0x9d
 	"Yu ",     // 0x9e
 	"Lin ",    // 0x9f
 	"Min ",    // 0xa0
@@ -208,7 +208,7 @@ var x06f = []string{
 	"Ta ",     // 0xcc
 	"Song ",   // 0xcd
 	"Ding ",   // 0xce
-	"\uffff",  // 0xcf
+	"",        // 0xcf
 	"Zhu ",    // 0xd0
 	"Lai ",    // 0xd1
 	"Bin ",    // 0xd2
@@ -249,7 +249,7 @@ var x06f = []string{
 	"Hama ",   // 0xf5
 	"Kuo ",    // 0xf6
 	"Fei ",    // 0xf7
-	"\uffff",  // 0xf8
+	"",        // 0xf8
 	"Boku ",   // 0xf9
 	"Jian ",   // 0xfa
 	"Wei ",    // 0xfb

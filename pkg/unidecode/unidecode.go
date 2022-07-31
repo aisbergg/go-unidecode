@@ -83,7 +83,7 @@ func transliterateRune(r rune) (string, bool) {
 		return "", false
 	}
 	trl := tb[position]
-	if trl == "\uffff" {
+	if trl == "" {
 		return "", false
 	}
 

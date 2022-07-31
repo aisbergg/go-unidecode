@@ -1,25 +1,25 @@
 package table
 
 var x00a = []string{
-	"\uffff", // 0x00
-	"\uffff", // 0x01
+	"",       // 0x00
+	"",       // 0x01
 	"N",      // 0x02
-	"\uffff", // 0x03
-	"\uffff", // 0x04
+	"",       // 0x03
+	"",       // 0x04
 	"a",      // 0x05
 	"aa",     // 0x06
 	"i",      // 0x07
 	"ii",     // 0x08
 	"u",      // 0x09
 	"uu",     // 0x0a
-	"\uffff", // 0x0b
-	"\uffff", // 0x0c
-	"\uffff", // 0x0d
-	"\uffff", // 0x0e
+	"",       // 0x0b
+	"",       // 0x0c
+	"",       // 0x0d
+	"",       // 0x0e
 	"ee",     // 0x0f
 	"ai",     // 0x10
-	"\uffff", // 0x11
-	"\uffff", // 0x12
+	"",       // 0x11
+	"",       // 0x12
 	"oo",     // 0x13
 	"au",     // 0x14
 	"k",      // 0x15
@@ -42,7 +42,7 @@ var x00a = []string{
 	"d",      // 0x26
 	"dh",     // 0x27
 	"n",      // 0x28
-	"\uffff", // 0x29
+	"",       // 0x29
 	"p",      // 0x2a
 	"ph",     // 0x2b
 	"b",      // 0x2c
@@ -50,59 +50,59 @@ var x00a = []string{
 	"m",      // 0x2e
 	"y",      // 0x2f
 	"r",      // 0x30
-	"\uffff", // 0x31
+	"",       // 0x31
 	"l",      // 0x32
 	"ll",     // 0x33
-	"\uffff", // 0x34
+	"",       // 0x34
 	"v",      // 0x35
 	"sh",     // 0x36
-	"\uffff", // 0x37
+	"",       // 0x37
 	"s",      // 0x38
 	"h",      // 0x39
-	"\uffff", // 0x3a
-	"\uffff", // 0x3b
+	"",       // 0x3a
+	"",       // 0x3b
 	"'",      // 0x3c
-	"\uffff", // 0x3d
+	"",       // 0x3d
 	"aa",     // 0x3e
 	"i",      // 0x3f
 	"ii",     // 0x40
 	"u",      // 0x41
 	"uu",     // 0x42
-	"\uffff", // 0x43
-	"\uffff", // 0x44
-	"\uffff", // 0x45
-	"\uffff", // 0x46
+	"",       // 0x43
+	"",       // 0x44
+	"",       // 0x45
+	"",       // 0x46
 	"ee",     // 0x47
 	"ai",     // 0x48
-	"\uffff", // 0x49
-	"\uffff", // 0x4a
+	"",       // 0x49
+	"",       // 0x4a
 	"oo",     // 0x4b
 	"au",     // 0x4c
 	"",       // 0x4d
-	"\uffff", // 0x4e
-	"\uffff", // 0x4f
-	"\uffff", // 0x50
-	"\uffff", // 0x51
-	"\uffff", // 0x52
-	"\uffff", // 0x53
-	"\uffff", // 0x54
-	"\uffff", // 0x55
-	"\uffff", // 0x56
-	"\uffff", // 0x57
-	"\uffff", // 0x58
+	"",       // 0x4e
+	"",       // 0x4f
+	"",       // 0x50
+	"",       // 0x51
+	"",       // 0x52
+	"",       // 0x53
+	"",       // 0x54
+	"",       // 0x55
+	"",       // 0x56
+	"",       // 0x57
+	"",       // 0x58
 	"khh",    // 0x59
 	"ghh",    // 0x5a
 	"z",      // 0x5b
 	"rr",     // 0x5c
-	"\uffff", // 0x5d
+	"",       // 0x5d
 	"f",      // 0x5e
-	"\uffff", // 0x5f
-	"\uffff", // 0x60
-	"\uffff", // 0x61
-	"\uffff", // 0x62
-	"\uffff", // 0x63
-	"\uffff", // 0x64
-	"\uffff", // 0x65
+	"",       // 0x5f
+	"",       // 0x60
+	"",       // 0x61
+	"",       // 0x62
+	"",       // 0x63
+	"",       // 0x64
+	"",       // 0x65
 	"0",      // 0x66
 	"1",      // 0x67
 	"2",      // 0x68
@@ -118,22 +118,22 @@ var x00a = []string{
 	"",       // 0x72
 	"",       // 0x73
 	"G.E.O.", // 0x74
-	"\uffff", // 0x75
-	"\uffff", // 0x76
-	"\uffff", // 0x77
-	"\uffff", // 0x78
-	"\uffff", // 0x79
-	"\uffff", // 0x7a
-	"\uffff", // 0x7b
-	"\uffff", // 0x7c
-	"\uffff", // 0x7d
-	"\uffff", // 0x7e
-	"\uffff", // 0x7f
-	"\uffff", // 0x80
+	"",       // 0x75
+	"",       // 0x76
+	"",       // 0x77
+	"",       // 0x78
+	"",       // 0x79
+	"",       // 0x7a
+	"",       // 0x7b
+	"",       // 0x7c
+	"",       // 0x7d
+	"",       // 0x7e
+	"",       // 0x7f
+	"",       // 0x80
 	"N",      // 0x81
 	"N",      // 0x82
 	"H",      // 0x83
-	"\uffff", // 0x84
+	"",       // 0x84
 	"a",      // 0x85
 	"aa",     // 0x86
 	"i",      // 0x87
@@ -141,13 +141,13 @@ var x00a = []string{
 	"u",      // 0x89
 	"uu",     // 0x8a
 	"R",      // 0x8b
-	"\uffff", // 0x8c
+	"",       // 0x8c
 	"eN",     // 0x8d
-	"\uffff", // 0x8e
+	"",       // 0x8e
 	"e",      // 0x8f
 	"ai",     // 0x90
 	"oN",     // 0x91
-	"\uffff", // 0x92
+	"",       // 0x92
 	"o",      // 0x93
 	"au",     // 0x94
 	"k",      // 0x95
@@ -170,7 +170,7 @@ var x00a = []string{
 	"d",      // 0xa6
 	"dh",     // 0xa7
 	"n",      // 0xa8
-	"\uffff", // 0xa9
+	"",       // 0xa9
 	"p",      // 0xaa
 	"ph",     // 0xab
 	"b",      // 0xac
@@ -178,17 +178,17 @@ var x00a = []string{
 	"m",      // 0xae
 	"ya",     // 0xaf
 	"r",      // 0xb0
-	"\uffff", // 0xb1
+	"",       // 0xb1
 	"l",      // 0xb2
 	"ll",     // 0xb3
-	"\uffff", // 0xb4
+	"",       // 0xb4
 	"v",      // 0xb5
 	"sh",     // 0xb6
 	"ss",     // 0xb7
 	"s",      // 0xb8
 	"h",      // 0xb9
-	"\uffff", // 0xba
-	"\uffff", // 0xbb
+	"",       // 0xba
+	"",       // 0xbb
 	"'",      // 0xbc
 	"'",      // 0xbd
 	"aa",     // 0xbe
@@ -199,38 +199,38 @@ var x00a = []string{
 	"R",      // 0xc3
 	"RR",     // 0xc4
 	"eN",     // 0xc5
-	"\uffff", // 0xc6
+	"",       // 0xc6
 	"e",      // 0xc7
 	"ai",     // 0xc8
 	"oN",     // 0xc9
-	"\uffff", // 0xca
+	"",       // 0xca
 	"o",      // 0xcb
 	"au",     // 0xcc
 	"",       // 0xcd
-	"\uffff", // 0xce
-	"\uffff", // 0xcf
+	"",       // 0xce
+	"",       // 0xcf
 	"AUM",    // 0xd0
-	"\uffff", // 0xd1
-	"\uffff", // 0xd2
-	"\uffff", // 0xd3
-	"\uffff", // 0xd4
-	"\uffff", // 0xd5
-	"\uffff", // 0xd6
-	"\uffff", // 0xd7
-	"\uffff", // 0xd8
-	"\uffff", // 0xd9
-	"\uffff", // 0xda
-	"\uffff", // 0xdb
-	"\uffff", // 0xdc
-	"\uffff", // 0xdd
-	"\uffff", // 0xde
-	"\uffff", // 0xdf
+	"",       // 0xd1
+	"",       // 0xd2
+	"",       // 0xd3
+	"",       // 0xd4
+	"",       // 0xd5
+	"",       // 0xd6
+	"",       // 0xd7
+	"",       // 0xd8
+	"",       // 0xd9
+	"",       // 0xda
+	"",       // 0xdb
+	"",       // 0xdc
+	"",       // 0xdd
+	"",       // 0xde
+	"",       // 0xdf
 	"RR",     // 0xe0
-	"\uffff", // 0xe1
-	"\uffff", // 0xe2
-	"\uffff", // 0xe3
-	"\uffff", // 0xe4
-	"\uffff", // 0xe5
+	"",       // 0xe1
+	"",       // 0xe2
+	"",       // 0xe3
+	"",       // 0xe4
+	"",       // 0xe5
 	"0",      // 0xe6
 	"1",      // 0xe7
 	"2",      // 0xe8
@@ -241,19 +241,19 @@ var x00a = []string{
 	"7",      // 0xed
 	"8",      // 0xee
 	"9",      // 0xef
-	"\uffff", // 0xf0
-	"\uffff", // 0xf1
-	"\uffff", // 0xf2
-	"\uffff", // 0xf3
-	"\uffff", // 0xf4
-	"\uffff", // 0xf5
-	"\uffff", // 0xf6
-	"\uffff", // 0xf7
-	"\uffff", // 0xf8
-	"\uffff", // 0xf9
-	"\uffff", // 0xfa
-	"\uffff", // 0xfb
-	"\uffff", // 0xfc
-	"\uffff", // 0xfd
-	"\uffff", // 0xfe
+	"",       // 0xf0
+	"",       // 0xf1
+	"",       // 0xf2
+	"",       // 0xf3
+	"",       // 0xf4
+	"",       // 0xf5
+	"",       // 0xf6
+	"",       // 0xf7
+	"",       // 0xf8
+	"",       // 0xf9
+	"",       // 0xfa
+	"",       // 0xfb
+	"",       // 0xfc
+	"",       // 0xfd
+	"",       // 0xfe
 }

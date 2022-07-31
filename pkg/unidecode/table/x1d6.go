@@ -167,8 +167,8 @@ var x1d6 = []string{
 	"z",       // 0xa3
 	"i",       // 0xa4
 	"j",       // 0xa5
-	"\uffff",  // 0xa6
-	"\uffff",  // 0xa7
+	"",        // 0xa6
+	"",        // 0xa7
 	"Alpha",   // 0xa8
 	"Beta",    // 0xa9
 	"Gamma",   // 0xaa
@@ -220,41 +220,41 @@ var x1d6 = []string{
 	"chi",     // 0xd8
 	"psi",     // 0xd9
 	"omega",   // 0xda
-	"\uffff",  // 0xdb
-	"\uffff",  // 0xdc
-	"\uffff",  // 0xdd
-	"\uffff",  // 0xde
-	"\uffff",  // 0xdf
-	"\uffff",  // 0xe0
-	"\uffff",  // 0xe1
-	"\uffff",  // 0xe2
-	"\uffff",  // 0xe3
-	"\uffff",  // 0xe4
-	"\uffff",  // 0xe5
-	"\uffff",  // 0xe6
-	"\uffff",  // 0xe7
-	"\uffff",  // 0xe8
-	"\uffff",  // 0xe9
-	"\uffff",  // 0xea
-	"\uffff",  // 0xeb
-	"\uffff",  // 0xec
-	"\uffff",  // 0xed
-	"\uffff",  // 0xee
-	"\uffff",  // 0xef
-	"\uffff",  // 0xf0
-	"\uffff",  // 0xf1
-	"\uffff",  // 0xf2
-	"\uffff",  // 0xf3
-	"\uffff",  // 0xf4
-	"\uffff",  // 0xf5
-	"\uffff",  // 0xf6
-	"\uffff",  // 0xf7
-	"\uffff",  // 0xf8
-	"\uffff",  // 0xf9
-	"\uffff",  // 0xfa
-	"\uffff",  // 0xfb
-	"\uffff",  // 0xfc
-	"\uffff",  // 0xfd
-	"\uffff",  // 0xfe
-	"\uffff",  // 0xff
+	"",        // 0xdb
+	"",        // 0xdc
+	"",        // 0xdd
+	"",        // 0xde
+	"",        // 0xdf
+	"",        // 0xe0
+	"",        // 0xe1
+	"",        // 0xe2
+	"",        // 0xe3
+	"",        // 0xe4
+	"",        // 0xe5
+	"",        // 0xe6
+	"",        // 0xe7
+	"",        // 0xe8
+	"",        // 0xe9
+	"",        // 0xea
+	"",        // 0xeb
+	"",        // 0xec
+	"",        // 0xed
+	"",        // 0xee
+	"",        // 0xef
+	"",        // 0xf0
+	"",        // 0xf1
+	"",        // 0xf2
+	"",        // 0xf3
+	"",        // 0xf4
+	"",        // 0xf5
+	"",        // 0xf6
+	"",        // 0xf7
+	"",        // 0xf8
+	"",        // 0xf9
+	"",        // 0xfa
+	"",        // 0xfb
+	"",        // 0xfc
+	"",        // 0xfd
+	"",        // 0xfe
+	"",        // 0xff
 }

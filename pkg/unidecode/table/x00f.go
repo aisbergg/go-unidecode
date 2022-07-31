@@ -59,7 +59,7 @@ var x00f = []string{
 	"_",       // 0x37
 	"",        // 0x38
 	"~",       // 0x39
-	"\uffff",  // 0x3a
+	"",        // 0x3a
 	"]",       // 0x3b
 	"[[",      // 0x3c
 	"]]",      // 0x3d
@@ -73,7 +73,7 @@ var x00f = []string{
 	"c",       // 0x45
 	"ch",      // 0x46
 	"j",       // 0x47
-	"\uffff",  // 0x48
+	"",        // 0x48
 	"ny",      // 0x49
 	"tt",      // 0x4a
 	"tth",     // 0x4b
@@ -108,12 +108,12 @@ var x00f = []string{
 	"a",       // 0x68
 	"kss",     // 0x69
 	"r",       // 0x6a
-	"\uffff",  // 0x6b
-	"\uffff",  // 0x6c
-	"\uffff",  // 0x6d
-	"\uffff",  // 0x6e
-	"\uffff",  // 0x6f
-	"\uffff",  // 0x70
+	"",        // 0x6b
+	"",        // 0x6c
+	"",        // 0x6d
+	"",        // 0x6e
+	"",        // 0x6f
+	"",        // 0x70
 	"aa",      // 0x71
 	"i",       // 0x72
 	"ii",      // 0x73
@@ -141,10 +141,10 @@ var x00f = []string{
 	"",        // 0x89
 	"",        // 0x8a
 	"",        // 0x8b
-	"\uffff",  // 0x8c
-	"\uffff",  // 0x8d
-	"\uffff",  // 0x8e
-	"\uffff",  // 0x8f
+	"",        // 0x8c
+	"",        // 0x8d
+	"",        // 0x8e
+	"",        // 0x8f
 	"k",       // 0x90
 	"kh",      // 0x91
 	"g",       // 0x92
@@ -153,7 +153,7 @@ var x00f = []string{
 	"c",       // 0x95
 	"ch",      // 0x96
 	"j",       // 0x97
-	"\uffff",  // 0x98
+	"",        // 0x98
 	"ny",      // 0x99
 	"tt",      // 0x9a
 	"tth",     // 0x9b
@@ -190,7 +190,7 @@ var x00f = []string{
 	"w",       // 0xba
 	"y",       // 0xbb
 	"r",       // 0xbc
-	"\uffff",  // 0xbd
+	"",        // 0xbd
 	"X",       // 0xbe
 	" :X: ",   // 0xbf
 	" /O/ ",   // 0xc0
@@ -206,54 +206,54 @@ var x00f = []string{
 	"",        // 0xca
 	"",        // 0xcb
 	"",        // 0xcc
-	"\uffff",  // 0xcd
-	"\uffff",  // 0xce
+	"",        // 0xcd
+	"",        // 0xce
 	"",        // 0xcf
-	"\uffff",  // 0xd0
-	"\uffff",  // 0xd1
-	"\uffff",  // 0xd2
-	"\uffff",  // 0xd3
-	"\uffff",  // 0xd4
-	"\uffff",  // 0xd5
-	"\uffff",  // 0xd6
-	"\uffff",  // 0xd7
-	"\uffff",  // 0xd8
-	"\uffff",  // 0xd9
-	"\uffff",  // 0xda
-	"\uffff",  // 0xdb
-	"\uffff",  // 0xdc
-	"\uffff",  // 0xdd
-	"\uffff",  // 0xde
-	"\uffff",  // 0xdf
-	"\uffff",  // 0xe0
-	"\uffff",  // 0xe1
-	"\uffff",  // 0xe2
-	"\uffff",  // 0xe3
-	"\uffff",  // 0xe4
-	"\uffff",  // 0xe5
-	"\uffff",  // 0xe6
-	"\uffff",  // 0xe7
-	"\uffff",  // 0xe8
-	"\uffff",  // 0xe9
-	"\uffff",  // 0xea
-	"\uffff",  // 0xeb
-	"\uffff",  // 0xec
-	"\uffff",  // 0xed
-	"\uffff",  // 0xee
-	"\uffff",  // 0xef
-	"\uffff",  // 0xf0
-	"\uffff",  // 0xf1
-	"\uffff",  // 0xf2
-	"\uffff",  // 0xf3
-	"\uffff",  // 0xf4
-	"\uffff",  // 0xf5
-	"\uffff",  // 0xf6
-	"\uffff",  // 0xf7
-	"\uffff",  // 0xf8
-	"\uffff",  // 0xf9
-	"\uffff",  // 0xfa
-	"\uffff",  // 0xfb
-	"\uffff",  // 0xfc
-	"\uffff",  // 0xfd
-	"\uffff",  // 0xfe
+	"",        // 0xd0
+	"",        // 0xd1
+	"",        // 0xd2
+	"",        // 0xd3
+	"",        // 0xd4
+	"",        // 0xd5
+	"",        // 0xd6
+	"",        // 0xd7
+	"",        // 0xd8
+	"",        // 0xd9
+	"",        // 0xda
+	"",        // 0xdb
+	"",        // 0xdc
+	"",        // 0xdd
+	"",        // 0xde
+	"",        // 0xdf
+	"",        // 0xe0
+	"",        // 0xe1
+	"",        // 0xe2
+	"",        // 0xe3
+	"",        // 0xe4
+	"",        // 0xe5
+	"",        // 0xe6
+	"",        // 0xe7
+	"",        // 0xe8
+	"",        // 0xe9
+	"",        // 0xea
+	"",        // 0xeb
+	"",        // 0xec
+	"",        // 0xed
+	"",        // 0xee
+	"",        // 0xef
+	"",        // 0xf0
+	"",        // 0xf1
+	"",        // 0xf2
+	"",        // 0xf3
+	"",        // 0xf4
+	"",        // 0xf5
+	"",        // 0xf6
+	"",        // 0xf7
+	"",        // 0xf8
+	"",        // 0xf9
+	"",        // 0xfa
+	"",        // 0xfb
+	"",        // 0xfc
+	"",        // 0xfd
+	"",        // 0xfe
 }

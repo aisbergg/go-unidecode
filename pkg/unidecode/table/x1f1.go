@@ -12,11 +12,11 @@ var x1f1 = []string{
 	"7,",          // 0x08
 	"8,",          // 0x09
 	"9,",          // 0x0a
-	"\uffff",      // 0x0b
-	"\uffff",      // 0x0c
-	"\uffff",      // 0x0d
-	"\uffff",      // 0x0e
-	"\uffff",      // 0x0f
+	"",            // 0x0b
+	"",            // 0x0c
+	"",            // 0x0d
+	"",            // 0x0e
+	"",            // 0x0f
 	"(A)",         // 0x10
 	"(B)",         // 0x11
 	"(C)",         // 0x12
@@ -46,9 +46,9 @@ var x1f1 = []string{
 	"<S>",         // 0x2a
 	"(C)",         // 0x2b
 	"(R)",         // 0x2c
-	"\uffff",      // 0x2d
-	"\uffff",      // 0x2e
-	"\uffff",      // 0x2f
+	"",            // 0x2d
+	"",            // 0x2e
+	"",            // 0x2f
 	"[A]",         // 0x30
 	"[B]",         // 0x31
 	"[C]",         // 0x32
@@ -75,12 +75,12 @@ var x1f1 = []string{
 	"[X]",         // 0x47
 	"[Y]",         // 0x48
 	"[Z]",         // 0x49
-	"\uffff",      // 0x4a
-	"\uffff",      // 0x4b
-	"\uffff",      // 0x4c
-	"\uffff",      // 0x4d
-	"\uffff",      // 0x4e
-	"\uffff",      // 0x4f
+	"",            // 0x4a
+	"",            // 0x4b
+	"",            // 0x4c
+	"",            // 0x4d
+	"",            // 0x4e
+	"",            // 0x4f
 	"(A)",         // 0x50
 	"(B)",         // 0x51
 	"(C)",         // 0x52
@@ -107,12 +107,12 @@ var x1f1 = []string{
 	"(X)",         // 0x67
 	"(Y)",         // 0x68
 	"(Z)",         // 0x69
-	"\uffff",      // 0x6a
-	"\uffff",      // 0x6b
-	"\uffff",      // 0x6c
-	"\uffff",      // 0x6d
-	"\uffff",      // 0x6e
-	"\uffff",      // 0x6f
+	"",            // 0x6a
+	"",            // 0x6b
+	"",            // 0x6c
+	"",            // 0x6d
+	"",            // 0x6e
+	"",            // 0x6f
 	"[A]",         // 0x70
 	"[B]",         // 0x71
 	"[C]",         // 0x72
@@ -139,12 +139,12 @@ var x1f1 = []string{
 	"[X]",         // 0x87
 	"[Y]",         // 0x88
 	"[Z]",         // 0x89
-	"\uffff",      // 0x8a
-	"\uffff",      // 0x8b
-	"\uffff",      // 0x8c
-	"\uffff",      // 0x8d
-	"\uffff",      // 0x8e
-	"\uffff",      // 0x8f
+	"",            // 0x8a
+	"",            // 0x8b
+	"",            // 0x8c
+	"",            // 0x8d
+	"",            // 0x8e
+	"",            // 0x8f
 	"DJ",          // 0x90
 	"[CL]",        // 0x91
 	"[COOL]",      // 0x92
@@ -175,86 +175,86 @@ var x1f1 = []string{
 	"[UHD]",       // 0xab
 	"[VOD]",       // 0xac
 	"(m)",         // 0xad
-	"\uffff",      // 0xae
-	"\uffff",      // 0xaf
-	"\uffff",      // 0xb0
-	"\uffff",      // 0xb1
-	"\uffff",      // 0xb2
-	"\uffff",      // 0xb3
-	"\uffff",      // 0xb4
-	"\uffff",      // 0xb5
-	"\uffff",      // 0xb6
-	"\uffff",      // 0xb7
-	"\uffff",      // 0xb8
-	"\uffff",      // 0xb9
-	"\uffff",      // 0xba
-	"\uffff",      // 0xbb
-	"\uffff",      // 0xbc
-	"\uffff",      // 0xbd
-	"\uffff",      // 0xbe
-	"\uffff",      // 0xbf
-	"\uffff",      // 0xc0
-	"\uffff",      // 0xc1
-	"\uffff",      // 0xc2
-	"\uffff",      // 0xc3
-	"\uffff",      // 0xc4
-	"\uffff",      // 0xc5
-	"\uffff",      // 0xc6
-	"\uffff",      // 0xc7
-	"\uffff",      // 0xc8
-	"\uffff",      // 0xc9
-	"\uffff",      // 0xca
-	"\uffff",      // 0xcb
-	"\uffff",      // 0xcc
-	"\uffff",      // 0xcd
-	"\uffff",      // 0xce
-	"\uffff",      // 0xcf
-	"\uffff",      // 0xd0
-	"\uffff",      // 0xd1
-	"\uffff",      // 0xd2
-	"\uffff",      // 0xd3
-	"\uffff",      // 0xd4
-	"\uffff",      // 0xd5
-	"\uffff",      // 0xd6
-	"\uffff",      // 0xd7
-	"\uffff",      // 0xd8
-	"\uffff",      // 0xd9
-	"\uffff",      // 0xda
-	"\uffff",      // 0xdb
-	"\uffff",      // 0xdc
-	"\uffff",      // 0xdd
-	"\uffff",      // 0xde
-	"\uffff",      // 0xdf
-	"\uffff",      // 0xe0
-	"\uffff",      // 0xe1
-	"\uffff",      // 0xe2
-	"\uffff",      // 0xe3
-	"\uffff",      // 0xe4
-	"\uffff",      // 0xe5
-	"\uffff",      // 0xe6
-	"\uffff",      // 0xe7
-	"\uffff",      // 0xe8
-	"\uffff",      // 0xe9
-	"\uffff",      // 0xea
-	"\uffff",      // 0xeb
-	"\uffff",      // 0xec
-	"\uffff",      // 0xed
-	"\uffff",      // 0xee
-	"\uffff",      // 0xef
-	"\uffff",      // 0xf0
-	"\uffff",      // 0xf1
-	"\uffff",      // 0xf2
-	"\uffff",      // 0xf3
-	"\uffff",      // 0xf4
-	"\uffff",      // 0xf5
-	"\uffff",      // 0xf6
-	"\uffff",      // 0xf7
-	"\uffff",      // 0xf8
-	"\uffff",      // 0xf9
-	"\uffff",      // 0xfa
-	"\uffff",      // 0xfb
-	"\uffff",      // 0xfc
-	"\uffff",      // 0xfd
-	"\uffff",      // 0xfe
-	"\uffff",      // 0xff
+	"",            // 0xae
+	"",            // 0xaf
+	"",            // 0xb0
+	"",            // 0xb1
+	"",            // 0xb2
+	"",            // 0xb3
+	"",            // 0xb4
+	"",            // 0xb5
+	"",            // 0xb6
+	"",            // 0xb7
+	"",            // 0xb8
+	"",            // 0xb9
+	"",            // 0xba
+	"",            // 0xbb
+	"",            // 0xbc
+	"",            // 0xbd
+	"",            // 0xbe
+	"",            // 0xbf
+	"",            // 0xc0
+	"",            // 0xc1
+	"",            // 0xc2
+	"",            // 0xc3
+	"",            // 0xc4
+	"",            // 0xc5
+	"",            // 0xc6
+	"",            // 0xc7
+	"",            // 0xc8
+	"",            // 0xc9
+	"",            // 0xca
+	"",            // 0xcb
+	"",            // 0xcc
+	"",            // 0xcd
+	"",            // 0xce
+	"",            // 0xcf
+	"",            // 0xd0
+	"",            // 0xd1
+	"",            // 0xd2
+	"",            // 0xd3
+	"",            // 0xd4
+	"",            // 0xd5
+	"",            // 0xd6
+	"",            // 0xd7
+	"",            // 0xd8
+	"",            // 0xd9
+	"",            // 0xda
+	"",            // 0xdb
+	"",            // 0xdc
+	"",            // 0xdd
+	"",            // 0xde
+	"",            // 0xdf
+	"",            // 0xe0
+	"",            // 0xe1
+	"",            // 0xe2
+	"",            // 0xe3
+	"",            // 0xe4
+	"",            // 0xe5
+	"",            // 0xe6
+	"",            // 0xe7
+	"",            // 0xe8
+	"",            // 0xe9
+	"",            // 0xea
+	"",            // 0xeb
+	"",            // 0xec
+	"",            // 0xed
+	"",            // 0xee
+	"",            // 0xef
+	"",            // 0xf0
+	"",            // 0xf1
+	"",            // 0xf2
+	"",            // 0xf3
+	"",            // 0xf4
+	"",            // 0xf5
+	"",            // 0xf6
+	"",            // 0xf7
+	"",            // 0xf8
+	"",            // 0xf9
+	"",            // 0xfa
+	"",            // 0xfb
+	"",            // 0xfc
+	"",            // 0xfd
+	"",            // 0xfe
+	"",            // 0xff
 }

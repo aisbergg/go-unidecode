@@ -62,7 +62,7 @@ var x060 = []string{
 	"Koraeru ", // 0x3a
 	"Zong ",    // 0x3b
 	"Dui ",     // 0x3c
-	"\uffff",   // 0x3d
+	"",         // 0x3d
 	"Ki ",      // 0x3e
 	"Yi ",      // 0x3f
 	"Chi ",     // 0x40
