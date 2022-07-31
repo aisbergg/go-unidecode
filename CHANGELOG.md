@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 (2022-07-31)
+
+* error for every non transliteratable character
+* performance improvements
+
 ## 1.0.0 (2022-07-29)
 
 * update lookup tables with changes from avian2/unidecode
