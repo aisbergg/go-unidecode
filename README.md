@@ -71,3 +71,24 @@ func main() {
 	// Output: ?
 }
 ```
+
+## Benchmark
+
+The source code for the benchmark is located in the [benchmark](./benchmark) directory.
+
+```plaintext
+go test -bench=. -benchmem ./...
+goos: linux
+goarch: amd64
+pkg: github.com/aisbergg/go-unidecode/benchmark
+cpu: AMD Ryzen 5 5600X 6-Core Processor             
+BenchmarkAisberggUnidecode-12              43426             27708 ns/op            6144 B/op          1 allocs/op
+BenchmarkFiamUnidecode-12                   2218            504135 ns/op         4305250 B/op       2335 allocs/op
+BenchmarkMozillazgUnidecode-12             26877             44276 ns/op           86328 B/op        608 allocs/op
+PASS
+ok      github.com/aisbergg/go-unidecode/benchmark      4.306s
+```
+
+## License
+
+[MIT](LICENSE)
