@@ -70,22 +70,22 @@ var x000 = []string{
 	"2", // 0xb2
 	"3", // 0xb3
 
-	"'",     // 0xb4
-	"u",     // 0xb5
-	"P",     // 0xb6
-	"*",     // 0xb7
-	",",     // 0xb8
-	"1",     // 0xb9
-	"o",     // 0xba
-	">>",    // 0xbb
-	" 1/4 ", // 0xbc
-	" 1/2 ", // 0xbd
-	" 3/4 ", // 0xbe
-	"?",     // 0xbf
-	"A",     // 0xc0
-	"A",     // 0xc1
-	"A",     // 0xc2
-	"A",     // 0xc3
+	"'",    // 0xb4
+	"u",    // 0xb5
+	"P",    // 0xb6
+	"*",    // 0xb7
+	",",    // 0xb8
+	"1",    // 0xb9
+	"o",    // 0xba
+	">>",   // 0xbb
+	" 1/4", // 0xbc
+	" 1/2", // 0xbd
+	" 3/4", // 0xbe
+	"?",    // 0xbf
+	"A",    // 0xc0
+	"A",    // 0xc1
+	"A",    // 0xc2
+	"A",    // 0xc3
 
 	// Not "AE" - used in languages other than German
 	"A", // 0xc4
