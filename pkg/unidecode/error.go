@@ -2,9 +2,9 @@ package unidecode
 
 // Error represents an error that occurred during transliteration.
 type Error struct {
-	character rune
-	index     int
 	message   string
+	character rune
+	offset    int
 }
 
 // Error returns the formatted error message.

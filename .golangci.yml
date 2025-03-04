@@ -25,7 +25,6 @@ linters:
     - gosimple
     - govet
     - ineffassign
-    - misspell
     - nakedret
     - nilerr
     - nolintlint
@@ -40,9 +39,6 @@ linters:
 issues:
   max-same-issues: 0
   exclude-rules:
-    - linters:
-        - gocritic
-      text: "appendAssign"
     - path: _test\.go
       linters:
         - errcheck

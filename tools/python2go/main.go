@@ -49,7 +49,7 @@ func main() {
 				continue
 			}
 			line = strings.ReplaceAll(line, "#", "//")
-			line = strings.ReplaceAll(line, "None", `"\uffff"`)
+			line = strings.ReplaceAll(line, "None", `""`)
 			// replace single quotes with double quotes
 			line = singleQuotePattern.ReplaceAllStringFunc(line, replaceSingleQuote)
 			content = append(content, line)
@@ -66,8 +66,8 @@ func main() {
 		}
 
 		// write to file
-		outpath := fmt.Sprintf("../../pkg/unidecode/table/%s.go", filename)
-		outfile, err := os.OpenFile(outpath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+		outpath := fmt.Sprintf("../../internal/table/%s.go", filename)
+		outfile, err := os.OpenFile(outpath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
 		if err != nil {
 			die("Failed to create file %s: %s", outpath, err)
 		}
