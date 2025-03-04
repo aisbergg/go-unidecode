@@ -1,6 +1,6 @@
 module github.com/aisbergg/go-unidecode/benchmark
 
-go 1.16
+go 1.22
 
 require (
 	github.com/aisbergg/go-unidecode v0.0.0

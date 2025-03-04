@@ -2,3 +2,4 @@ github.com/fiam/gounidecode v0.0.0-20150629112515-8deddbd03fec h1:XvkU8wCqlvrrxu
 github.com/fiam/gounidecode v0.0.0-20150629112515-8deddbd03fec/go.mod h1:WuPQ88SgkK3OxlJQxlU/PBVn8FOC1JPjXINk7JhOQOA=
 github.com/mozillazg/go-unidecode v0.1.1 h1:uiRy1s4TUqLbcROUrnCN/V85Jlli2AmDF6EeAXOeMHE=
 github.com/mozillazg/go-unidecode v0.1.1/go.mod h1:fYMdhyjni9ZeEmS6OE/GJHDLsF8TQvIVDwYR/drR26Q=
+github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=

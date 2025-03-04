@@ -9,6 +9,8 @@ import (
 	mozillazg "github.com/mozillazg/go-unidecode"
 )
 
+var global int
+
 var (
 	chinese = `余囚北庭，坐一土室。室广八尺，深可四寻。单扉低小，白间短窄，污下而幽暗。当此夏日，诸气萃然：雨潦四集，浮动床几，时则为水气；涂泥半朝，蒸沤历澜，时则为土气；乍晴暴热，风道四塞，时则为日气；檐阴薪爨，助长炎虐，时则为火气；仓腐寄顿，陈陈逼人，时则为米气；骈肩杂遝，腥臊汗垢，时则为人气；或圊溷、或毁尸、或腐鼠，恶气杂出，时则为秽气。叠是数气，当之者鲜不为厉。而予以孱弱，俯仰其间，于兹二年矣，幸而无恙，是殆有养致然尔。然亦安知所养何哉？孟子曰：‘吾善养吾浩然之气。’彼气有七，吾气有一，以一敌七，吾何患焉！况浩然者，乃天地之正气也，作正气歌一首。
 	天地有正气，杂然赋流形。下则为河岳，上则为日星。于人曰浩然，沛乎塞苍冥。
@@ -29,19 +31,40 @@ var (
 )
 
 func BenchmarkAisberggUnidecode(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for range b.N {
 		_, _ = aisbergg.Unidecode(combined, aisbergg.Ignore)
 	}
 }
 
+func BenchmarkAisberggUnidecodeAppend(b *testing.B) {
+	buf := make([]byte, 0, len(combined)+len(combined)/3)
+	b.ResetTimer()
+	for range b.N {
+		_, _ = aisbergg.Append(buf, combined, aisbergg.Ignore)
+		buf = buf[:0]
+	}
+}
+
+func BenchmarkAisberggUnidecodeWriter(b *testing.B) {
+	buf := &strings.Builder{}
+	buf.Grow(len(combined) + len(combined)/3)
+	w := aisbergg.NewWriter(buf, aisbergg.Ignore)
+	b.ResetTimer()
+	var n int
+	for range b.N {
+		n, _ = w.WriteString(combined)
+	}
+	global = n
+}
+
 func BenchmarkFiamUnidecode(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for range b.N {
 		_ = fiam.Unidecode(combined)
 	}
 }
 
 func BenchmarkMozillazgUnidecode(b *testing.B) {
-	for i := 0; i < b.N; i++ {
+	for range b.N {
 		_ = mozillazg.Unidecode(combined)
 	}
 }
