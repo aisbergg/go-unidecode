@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 # go-unidecode
 
 [![GoDoc](https://pkg.go.dev/badge/github.com/aisbergg/go-unidecode)](https://pkg.go.dev/github.com/aisbergg/go-unidecode/pkg/unidecode)
@@ -12,7 +14,7 @@ ASCII transliterations of Unicode text for Go. Unicode characters are mapped to 
 
 Inspired by [python-unidecode](https://github.com/avian2/unidecode).
 
-<details>
+<details open="open">
   <summary>Table of Contents</summary>
 
 - [Installation](#installation)
@@ -40,7 +42,7 @@ $ go install github.com/aisbergg/go-unidecode/cmd/unidecode
 $ unidecode 北京kožušček
 Bei Jing kozuscek
 
-$ cat file.txt | unidecode -e replace -r "#"
+$ cat file.txt | unidecode -e replace -r "#" -
 ```
 
 <p align="right"><a href="#readme-top" alt="abc"><b>back to top ⇧</b></a></p>
