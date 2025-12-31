@@ -214,7 +214,7 @@ var x1d6 = []string{
 	"rho",     // 0xd2
 	"sigma",   // 0xd3
 	"sigma",   // 0xd4
-	"tai",     // 0xd5
+	"tau",     // 0xd5
 	"upsilon", // 0xd6
 	"phi",     // 0xd7
 	"chi",     // 0xd8

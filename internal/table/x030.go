@@ -252,8 +252,8 @@ var x030 = []string{
 	"vi",    // 0xf8
 	"ve",    // 0xf9
 	"vo",    // 0xfa
-	"",      // 0xfb
-	"",      // 0xfc
+	"*",     // 0xfb
+	"-",     // 0xfc
 	"\"",    // 0xfd
 	"\"",    // 0xfe
 }

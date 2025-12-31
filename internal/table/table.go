@@ -1,3 +1,4 @@
+// Package table contains the transliteration tables and lookup logic.
 package table
 
 var tables [][]string
