@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
+- [1.3.0 (2025-12-31)](#130-2025-12-31)
 - [1.2.0 (2025-03-05)](#120-2025-03-05)
 - [1.1.1 (2022-07-31)](#111-2022-07-31)
 - [1.1.0 (2022-07-31)](#110-2022-07-31)
@@ -10,6 +11,18 @@ All notable changes to this project will be documented in this file.
 - [0.1.0 (2016-07-10)](#010-2016-07-10)
 
 ---
+
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/aisbergg/go-bruh/compare/v1.2.0...v1.3.0) (2025-12-31)
+
+### Features
+
+- update transliteration tables from github.com/avian2/unidecode
+
+### Performance Improvements
+
+- improve performance of unidecode writer
+
 
 <a name="1.2.0"></a>
 ## [1.2.0](https://github.com/aisbergg/go-bruh/compare/v1.1.1...v1.2.0) (2025-03-05)
