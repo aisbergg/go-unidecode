@@ -1,6 +1,7 @@
 package benchmark
 
 import (
+	"bytes"
 	"strings"
 	"testing"
 
@@ -46,12 +47,13 @@ func BenchmarkAisberggUnidecodeAppend(b *testing.B) {
 }
 
 func BenchmarkAisberggUnidecodeWriter(b *testing.B) {
-	buf := &strings.Builder{}
+	buf := &bytes.Buffer{}
 	buf.Grow(len(combined) + len(combined)/3)
 	w := aisbergg.NewWriter(buf, aisbergg.Ignore)
 	b.ResetTimer()
 	var n int
 	for range b.N {
+		buf.Reset()
 		n, _ = w.WriteString(combined)
 	}
 	global = n

@@ -10,11 +10,6 @@ import (
 	"github.com/aisbergg/go-unidecode/internal/table"
 )
 
-type Buffer interface {
-	io.StringWriter
-	fmt.Stringer
-}
-
 // ErrorHandling specifies the behavior of Unidecode in case of an error.
 type ErrorHandling uint8
 
@@ -105,61 +100,63 @@ func AppendBytes(b, s []byte, errors ErrorHandling, replacement ...string) ([]by
 
 // Writer is an io.Writer that transliterates Unicode text into plain 7-bit ASCII.
 type Writer struct {
-	w  io.Writer
-	sw io.StringWriter
-	// when the underlying writer is not a StringWriter, we use a buffer to safely copy strings
+	w      io.Writer
 	buf    []byte
 	repl   string
 	errors ErrorHandling
 }
 
-// NewWriter returns a new [Writer].
+// NewWriter returns a new Writer that transliterates Unicode text written to w
+// into plain 7-bit ASCII. The behavior in case of untransliteratable characters
+// is specified by the errors parameter. An optional replacement string can be
+// provided to be used when errors is set to Replace.
 func NewWriter(w io.Writer, errors ErrorHandling, replacement ...string) Writer {
 	repl := ""
 	if len(replacement) > 0 {
 		repl = replacement[0]
 	}
-	sw, _ := w.(io.StringWriter) //nolint:all
-	buf := make([]byte, 96)
+	// buffer for at least 32 characters
+	buf := make([]byte, 32*utf8.UTFMax) // buffer for copying strings when needed
 	return Writer{
 		w:      w,
-		sw:     sw,
 		buf:    buf,
 		repl:   repl,
 		errors: errors,
 	}
 }
 
+// Write writes the contents of p to the underlying writer after transliterating
+// it into plain 7-bit ASCII.
 func (uw Writer) Write(p []byte) (n int, err error) {
-	return uw.writeString(*(*string)(unsafe.Pointer(&p)), false)
+	return uw.writeString(*(*string)(unsafe.Pointer(&p)))
 }
 
+// WriteString writes the contents of s to the underlying writer after
+// transliterating it into plain 7-bit ASCII.
 func (uw Writer) WriteString(s string) (n int, err error) {
-	return uw.writeString(s, true)
+	return uw.writeString(s)
 }
 
-func (uw Writer) writeString(s string, mustCopy bool) (n int, err error) { //nolint:revive
-	b := unsafe.Slice(unsafe.StringData(s), len(s))
-	for pos, r := range s {
+func (uw Writer) writeString(s string) (n int, err error) { //nolint:revive
+	buf := uw.buf[:0]
+	writtenCount := 0
+	for len(s) > 0 {
+		// flush buffer if it is full
+		if len(buf) >= cap(buf)-3 {
+			if n, err = uw.w.Write(buf); err != nil {
+				return writtenCount + n, err
+			}
+			buf = buf[:0]
+			writtenCount += n
+		}
+
+		// decode next rune
+		r, size := utf8.DecodeRuneInString(s)
+		s = s[size:]
+
 		// keep ASCII characters as is
 		if r < unicode.MaxASCII {
-			if uw.sw != nil { //nolint:all
-				if _, err = uw.sw.WriteString(s[pos : pos+1]); err != nil {
-					return pos, err
-				}
-			} else if mustCopy {
-				// to avoid allocations while converting the string to a byte slice
-				// we copy the string in a preallocated buffer
-				cn := copy(uw.buf, s[pos:pos+1])
-				if _, err = uw.w.Write(uw.buf[:cn]); err != nil {
-					return pos, err
-				}
-			} else {
-				// we can safely cast the string to a byte slice
-				if _, err = uw.w.Write(b[pos : pos+1]); err != nil {
-					return pos, err
-				}
-			}
+			buf = append(buf, byte(r))
 			continue
 		}
 
@@ -169,7 +166,11 @@ func (uw Writer) writeString(s string, mustCopy bool) (n int, err error) { //nol
 			case Ignore:
 				continue
 			case Strict:
-				return pos, &Error{fmt.Sprintf("no replacement found for character '%c' at offset %d", r, pos), r, pos}
+				return writtenCount, &Error{
+					fmt.Sprintf("no replacement found for character '%c' at offset %d", r, writtenCount),
+					r,
+					writtenCount,
+				}
 			case Replace:
 				trl = uw.repl
 			case Preserve:
@@ -178,20 +179,41 @@ func (uw Writer) writeString(s string, mustCopy bool) (n int, err error) { //nol
 				panic("invalid value for errors parameter")
 			}
 		}
-		if uw.sw != nil {
-			if _, err = uw.sw.WriteString(trl); err != nil {
-				return pos, err
+		// if the transliteration is larger than the buffer capacity, write directly
+		if len(trl) > cap(buf) {
+			if len(buf) > 0 {
+				if n, err = uw.w.Write(buf); err != nil {
+					return writtenCount + n, err
+				}
+				buf = buf[:0]
+				writtenCount += n
 			}
-		} else {
-			// to avoid allocations while converting the string to a byte slice
-			// we copy the string in a preallocated buffer
-			cn := copy(uw.buf, trl)
-			if _, err = uw.w.Write(uw.buf[:cn]); err != nil {
-				return pos, err
+			if n, err = uw.w.Write(*(*[]byte)(unsafe.Pointer(&trl))); err != nil {
+				return writtenCount + n, err
 			}
+			writtenCount += n
+			continue
+
+		} else if len(buf)+len(trl) > cap(buf) {
+			// if the transliteration does not fit into the buffer, flush buffer
+			if n, err = uw.w.Write(buf); err != nil {
+				return writtenCount + n, err
+			}
+			buf = buf[:0]
+			writtenCount += n
+		}
+
+		buf = append(buf, trl...)
+	}
+
+	// flush buffer one last time
+	if len(buf) > 0 {
+		if n, err = uw.w.Write(buf); err != nil {
+			return writtenCount - len(buf) + n, err
 		}
 	}
-	return len(s), nil
+	writtenCount += n
+	return writtenCount, nil
 }
 
 // transliterateRune converts the given rune into a Latin representation. An

@@ -128,11 +128,11 @@ The source code for the benchmarks is located in the [benchmarks](./benchmarks) 
 
 ```plaintext
 cpu: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
-BenchmarkAisberggUnidecode-4         	   34971	     32703 ns/op	    6144 B/op	       1 allocs/op
-BenchmarkAisberggUnidecodeAppend-4   	   38949	     30046 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAisberggUnidecodeWriter-4   	   27589	     43437 ns/op	   23981 B/op	       0 allocs/op
-BenchmarkFiamUnidecode-4             	     949	   1211890 ns/op	 4305247 B/op	    2335 allocs/op
-BenchmarkMozillazgUnidecode-4        	   10000	    102804 ns/op	  107960 B/op	     608 allocs/op
+BenchmarkAisberggUnidecode-4               35958             32755 ns/op            6144 B/op          1 allocs/op
+BenchmarkAisberggUnidecodeAppend-4         37257             31709 ns/op               0 B/op          0 allocs/op
+BenchmarkAisberggUnidecodeWriter-4         32538             35927 ns/op               0 B/op          0 allocs/op
+BenchmarkFiamUnidecode-4                    1249            839814 ns/op         4305246 B/op       2335 allocs/op
+BenchmarkMozillazgUnidecode-4              33549             34841 ns/op           17912 B/op         13 allocs/op
 ```
 
 <p align="right"><a href="#readme-top" alt="abc"><b>back to top ⇧</b></a></p>

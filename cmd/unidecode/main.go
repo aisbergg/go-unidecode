@@ -1,3 +1,4 @@
+// Package main implements the unidecode command line tool.
 package main
 
 import (
@@ -12,10 +13,12 @@ import (
 
 func printUsage(w io.Writer) {
 	flag.CommandLine.SetOutput(w)
+	//nolint:revive
 	fmt.Fprintln(w, `Usage: unidecode [OPTIONS] STRING...
 
 Options:`)
 	flag.PrintDefaults()
+	//nolint:revive
 	fmt.Fprintln(w, `
 Examples:
   unidecode "北京kožušček" -e ignore
@@ -42,7 +45,7 @@ func main() {
 	case "preserve":
 		errHnd = unidecode.Preserve
 	default:
-		fmt.Fprintln(os.Stderr, "invalid value for -e option")
+		fmt.Fprintln(os.Stderr, "invalid value for -e option") //nolint:revive
 		os.Exit(1)
 	}
 
@@ -56,7 +59,7 @@ func main() {
 
 	writer := unidecode.NewWriter(os.Stdout, errHnd, *replacementFlag)
 	if _, err := io.Copy(writer, reader); err != nil {
-		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
+		fmt.Fprintf(os.Stderr, "Error: %s\n", err) //nolint:revive
 		os.Exit(1)
 	}
 }
