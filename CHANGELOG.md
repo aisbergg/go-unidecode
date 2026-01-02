@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
+- [1.3.1 (2026-01-02)](#131-2026-01-02)
 - [1.3.0 (2025-12-31)](#130-2025-12-31)
 - [1.2.0 (2025-03-05)](#120-2025-03-05)
 - [1.1.1 (2022-07-31)](#111-2022-07-31)
@@ -11,6 +12,14 @@ All notable changes to this project will be documented in this file.
 - [0.1.0 (2016-07-10)](#010-2016-07-10)
 
 ---
+
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/aisbergg/go-bruh/compare/v1.3.0...v1.3.1) (2026-01-02)
+
+### Bug Fixes
+
+- when dealing with long replacements temporarily copy its content into a `[]byte` array instead of unsafely using the underlying string memory
+
 
 <a name="1.3.0"></a>
 ## [1.3.0](https://github.com/aisbergg/go-bruh/compare/v1.2.0...v1.3.0) (2025-12-31)
