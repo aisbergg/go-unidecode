@@ -1,6 +1,7 @@
 package unidecode_test
 
 import (
+	"errors"
 	"strings"
 	"testing"
 	"unicode"
@@ -97,6 +98,7 @@ func testUnidecode(t *testing.T, fn testUnidecodeFn) {
 		cases := []testCase{
 			{"", ""},
 			{"abc", "abc"},
+			{strings.Repeat("a", 1000), strings.Repeat("a", 1000)},
 			{"北京", "Bei Jing "},
 			{"abc北京", "abcBei Jing "},
 			{"ネオアームストロングサイクロンジェットアームストロング砲", "neoa-musutorongusaikuronzietsutoa-musutoronguPao "},
@@ -122,6 +124,8 @@ func testUnidecode(t *testing.T, fn testUnidecodeFn) {
 			{"\U0001d5a0", "A"},
 			{"\U0001d5c4\U0001d5c6/\U0001d5c1", "km/h"},
 			{"\u2124\U0001d552\U0001d55c\U0001d552\U0001d55b \U0001d526\U0001d52a\U0001d51e \U0001d4e4\U0001d4f7\U0001d4f2\U0001d4ec\U0001d4f8\U0001d4ed\U0001d4ee \U0001d4c8\U0001d4c5\u212f\U0001d4b8\U0001d4be\U0001d4bb\U0001d4be\U0001d4c0\U0001d4b6\U0001d4b8\U0001d4be\U0001d4bf\u212f \U0001d59f\U0001d586 \U0001d631\U0001d62a\U0001d634\U0001d622\U0001d637\U0001d626?!", "Zakaj ima Unicode specifikacije za pisave?!"},
+			// é is two bytes in size
+			{strings.Repeat("é", 40), strings.Repeat("e", 40)},
 		}
 		for _, tc := range cases {
 			actual, err := fn(tc.input, unidecode.Ignore, "")
@@ -176,6 +180,23 @@ func testUnidecode(t *testing.T, fn testUnidecodeFn) {
 		}
 		for _, tc := range cases {
 			actual, err := fn(tc.input, unidecode.Replace, "?")
+			if err != nil {
+				t.Errorf("Error: %s", err)
+			}
+			if actual != tc.expected {
+				t.Errorf("Input: %s, Expected: %s, Got: %s", tc.input, tc.expected, actual)
+			}
+		}
+		// long replacements
+		type longReplacementTestCase struct {
+			input, replacement, expected string
+		}
+		casesLong := []longReplacementTestCase{
+			{"foo\ua500bar", strings.Repeat("X", 1000), "foo" + strings.Repeat("X", 1000) + "bar"},
+			{strings.Repeat("a", 125) + "\ua500", strings.Repeat("X", 10), strings.Repeat("a", 125) + strings.Repeat("X", 10)},
+		}
+		for _, tc := range casesLong {
+			actual, err := fn(tc.input, unidecode.Replace, tc.replacement)
 			if err != nil {
 				t.Errorf("Error: %s", err)
 			}
@@ -248,4 +269,90 @@ func testUnidecode(t *testing.T, fn testUnidecodeFn) {
 			}
 		}
 	})
+}
+
+type failingWriter struct {
+	failAfterBytes int
+	writtenBytes   int
+}
+
+func (w *failingWriter) Write(p []byte) (n int, err error) {
+	remaining := w.failAfterBytes - w.writtenBytes
+	if remaining <= 0 {
+		return 0, errors.New("simulated write failure")
+	}
+	if len(p) > remaining {
+		p = p[:remaining]
+		return remaining, errors.New("simulated write failure")
+	}
+	n = len(p)
+	w.writtenBytes += n
+	return n, nil
+}
+
+type failingStringWriter struct {
+	failingWriter
+}
+
+func (w *failingStringWriter) WriteString(s string) (n int, err error) {
+	return w.Write([]byte(s))
+}
+
+func TestErrorPaths(t *testing.T) {
+	errMsg := "Expected error from failing writer, got nil"
+
+	// some failure paths for failing writes to writer
+	uw := unidecode.NewWriter(&failingWriter{failAfterBytes: 10}, unidecode.Strict)
+	_, err := uw.WriteString("abcdefghijklmnopqrstuvwxyz")
+	if err == nil {
+		t.Errorf(errMsg)
+	}
+
+	uw = unidecode.NewWriter(&failingWriter{failAfterBytes: 10}, unidecode.Strict)
+	_, err = uw.WriteString(strings.Repeat("a", 1000))
+	if err == nil {
+		t.Errorf(errMsg)
+	}
+
+	input := "foo\ua500bar"
+	uw = unidecode.NewWriter(&failingWriter{failAfterBytes: 1}, unidecode.Replace, strings.Repeat("X", 1000))
+	_, err = uw.WriteString(input)
+	if err == nil {
+		t.Errorf(errMsg)
+	}
+	uw = unidecode.NewWriter(&failingWriter{failAfterBytes: 20}, unidecode.Replace, strings.Repeat("X", 1000))
+	_, err = uw.WriteString(input)
+	if err == nil {
+		t.Errorf(errMsg)
+	}
+	uw = unidecode.NewWriter(&failingStringWriter{failingWriter: failingWriter{failAfterBytes: 20}}, unidecode.Replace, strings.Repeat("X", 1000))
+	_, err = uw.WriteString(input)
+	if err == nil {
+		t.Errorf(errMsg)
+	}
+	input = strings.Repeat("a", 125) + "\ua500"
+	uw = unidecode.NewWriter(&failingWriter{failAfterBytes: 1}, unidecode.Replace, strings.Repeat("X", 10))
+	_, err = uw.WriteString(input)
+	if err == nil {
+		t.Errorf(errMsg)
+	}
+
+	// invalid errors-handling-mode should panic
+	func() {
+		defer func() {
+			if r := recover(); r == nil {
+				t.Errorf("Expected panic from failing writer, got none")
+			}
+		}()
+		uw = unidecode.NewWriter(&failingWriter{failAfterBytes: 10}, 99)
+		_, _ = uw.WriteString("⁐")
+	}()
+	func() {
+		defer func() {
+			if r := recover(); r == nil {
+				t.Errorf("Expected panic from failing writer, got none")
+			}
+		}()
+		_, _ = unidecode.Unidecode("⁐", 99)
+	}()
 }
