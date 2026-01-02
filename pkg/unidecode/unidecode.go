@@ -141,21 +141,20 @@ func (uw Writer) writeString(s string) (n int, err error) { //nolint:revive
 	buf := uw.buf[:0]
 	writtenCount := 0
 	for len(s) > 0 {
-		// flush buffer if it is full
-		if len(buf) >= cap(buf)-3 {
-			if n, err = uw.w.Write(buf); err != nil {
-				return writtenCount + n, err
-			}
-			buf = buf[:0]
-			writtenCount += n
-		}
-
 		// decode next rune
 		r, size := utf8.DecodeRuneInString(s)
 		s = s[size:]
 
 		// keep ASCII characters as is
 		if r < unicode.MaxASCII {
+			// flush buffer if it is full
+			if len(buf) >= cap(buf) {
+				if n, err = uw.w.Write(buf); err != nil {
+					return writtenCount + n, err
+				}
+				buf = buf[:0]
+				writtenCount += n
+			}
 			buf = append(buf, byte(r))
 			continue
 		}
@@ -188,7 +187,16 @@ func (uw Writer) writeString(s string) (n int, err error) { //nolint:revive
 				buf = buf[:0]
 				writtenCount += n
 			}
-			if n, err = uw.w.Write(*(*[]byte)(unsafe.Pointer(&trl))); err != nil {
+			if sw, ok := uw.w.(io.StringWriter); ok {
+				if n, err = sw.WriteString(trl); err != nil {
+					return writtenCount + n, err
+				}
+				writtenCount += n
+				continue
+			}
+			// we have no choice, we have to allocate new bytes and copy the
+			// transliteration string into it without making it unsafe
+			if n, err = uw.w.Write([]byte(trl)); err != nil {
 				return writtenCount + n, err
 			}
 			writtenCount += n
